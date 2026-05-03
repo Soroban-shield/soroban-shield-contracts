@@ -1,0 +1,22 @@
+# CODEOWNERS — soroban-shield-contracts
+# These owners are automatically requested for review on PRs that touch their paths.
+
+# Org-wide defaults
+*                               @soroban-shield/maintainers
+
+# Contract modules
+src/contracts/ownable/          @soroban-shield/maintainers
+src/contracts/access_control/   @soroban-shield/maintainers
+src/contracts/pausable/         @soroban-shield/maintainers
+src/contracts/reentrancy_guard/ @soroban-shield/maintainers
+src/contracts/rate_limiter/     @soroban-shield/maintainers
+src/contracts/multi_sig/        @soroban-shield/maintainers
+src/contracts/upgradeable/      @soroban-shield/maintainers
+
+# Shared types and errors
+src/types/                      @soroban-shield/maintainers
+src/errors/                     @soroban-shield/maintainers
+src/events/                     @soroban-shield/maintainers
+
+# CI / workflows — must be reviewed by maintainers
+.github/                        @soroban-shield/maintainers
