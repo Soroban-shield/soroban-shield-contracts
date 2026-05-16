@@ -1,7 +1,5 @@
 [workspace]
-members = [
-  ".",
-]
+members = ["."]
 resolver = "2"
 
 [package]
@@ -10,7 +8,7 @@ version = "0.1.0"
 edition = "2021"
 authors = ["Soroban Shield Contributors"]
 description = "Audited, modular Soroban smart contract components for the Stellar ecosystem"
-repository = "https://github.com/soroban-shield/soroban-shield-contracts"
+repository = "https://github.com/Soroban-shield/soroban-shield-contracts"
 license = "MIT"
 keywords = ["stellar", "soroban", "smart-contracts", "security", "defi"]
 categories = ["cryptography::cryptocurrencies"]
@@ -23,10 +21,22 @@ default = []
 testutils = ["soroban-sdk/testutils"]
 
 [dependencies]
-soroban-sdk = { version = "21.0.0", features = [] }
+soroban-sdk = { version = "21.0.0" }
 
 [dev-dependencies]
 soroban-sdk = { version = "21.0.0", features = ["testutils"] }
+
+[[test]]
+name = "ownable_pausable"
+path = "tests/integration/ownable_pausable_test.rs"
+
+[[test]]
+name = "access_multi_sig"
+path = "tests/integration/access_multi_sig_test.rs"
+
+[[test]]
+name = "full_stack"
+path = "tests/integration/full_stack_test.rs"
 
 [profile.release]
 opt-level = "z"
