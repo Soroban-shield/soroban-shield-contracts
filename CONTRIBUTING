@@ -1,0 +1,19 @@
+# Contributing to soroban-shield-contracts
+
+Thank you for contributing to Soroban Shield. Please read the org-wide
+[CONTRIBUTING.md](https://github.com/Soroban-shield/soroban-shield/blob/main/CONTRIBUTING.md)
+for workflow details.
+
+## Development
+
+```bash
+cargo test --features testutils
+cargo fmt --all
+cargo clippy -- -D warnings
+```
+
+## Module guidelines
+
+- Keep modules self-contained under `src/contracts/<name>/`
+- Add unit tests in-module and integration tests under `tests/`
+- Document public functions with security rationale
