@@ -1,5 +1,6 @@
 //! N-of-M threshold execution for privileged operations.
 
+pub mod contract;
 pub mod interface;
 pub mod proposal;
 
@@ -9,6 +10,8 @@ use crate::events::multi_sig as ms_events;
 
 const THRESHOLD: Symbol = soroban_sdk::symbol_short!("MSTHR");
 const NEXT_ID: Symbol = soroban_sdk::symbol_short!("MSID");
+
+pub use contract::{cancel, execute};
 
 pub fn set_threshold(env: &Env, threshold: u32) {
     env.storage().instance().set(&THRESHOLD, &threshold);
