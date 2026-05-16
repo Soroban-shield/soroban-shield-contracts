@@ -1,13 +1,15 @@
 //! Emergency pause circuit breaker.
 
+pub mod contract;
 pub mod interface;
 
 use soroban_sdk::{Address, Env, Symbol};
 
-use crate::errors::pausable::PausableError;
 use crate::events::pausable as pause_events;
 
 const PAUSED: Symbol = soroban_sdk::symbol_short!("PAUSED");
+
+pub use contract::{require_not_paused, require_paused};
 
 pub fn pause(env: &Env, account: &Address) {
     account.require_auth();
