@@ -1,0 +1,18 @@
+//! Cross-call reentrancy protection via instance lock.
+
+pub mod interface;
+
+use soroban_sdk::{Env, Symbol};
+
+const LOCK: Symbol = soroban_sdk::symbol_short!("REENT");
+
+pub fn enter(env: &Env) {
+    if env.storage().instance().get(&LOCK).unwrap_or(false) {
+        panic!("reentrancy guard: reentrant call");
+    }
+    env.storage().instance().set(&LOCK, &true);
+}
+
+pub fn exit(env: &Env) {
+    env.storage().instance().set(&LOCK, &false);
+}
