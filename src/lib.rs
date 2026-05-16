@@ -6,3 +6,7 @@ pub mod contracts;
 pub mod errors;
 pub mod events;
 pub mod types;
+
+pub use contracts::ownable;
+pub use contracts::access_control;
+pub use contracts::pausable;
