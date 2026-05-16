@@ -3,6 +3,9 @@
 pub mod contract;
 pub mod interface;
 
+#[cfg(test)]
+mod test;
+
 use soroban_sdk::{Env, Symbol};
 
 const LOCK: Symbol = soroban_sdk::symbol_short!("REENT");

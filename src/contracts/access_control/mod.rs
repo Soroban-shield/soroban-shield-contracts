@@ -4,9 +4,11 @@ pub mod contract;
 pub mod interface;
 pub mod roles;
 
+#[cfg(test)]
+mod test;
+
 use soroban_sdk::{Address, Env, Symbol};
 
-use crate::errors::access::AccessError;
 use crate::events::access_control as ac_events;
 
 pub use contract::{revoke_role, set_role_admin};

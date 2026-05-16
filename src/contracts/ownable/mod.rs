@@ -3,6 +3,9 @@
 pub mod contract;
 pub mod interface;
 
+#[cfg(test)]
+mod test;
+
 use soroban_sdk::{Address, Env, Symbol};
 
 pub use contract::{accept_ownership, renounce_ownership, transfer_ownership};

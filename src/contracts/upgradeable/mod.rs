@@ -1,7 +1,11 @@
 //! WASM proxy upgrade pattern for Soroban.
 
+pub mod contract;
 pub mod interface;
 pub mod proxy;
+
+#[cfg(test)]
+mod test;
 
 use soroban_sdk::{BytesN, Env};
 

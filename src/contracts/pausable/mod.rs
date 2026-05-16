@@ -3,6 +3,9 @@
 pub mod contract;
 pub mod interface;
 
+#[cfg(test)]
+mod test;
+
 use soroban_sdk::{Address, Env, Symbol};
 
 use crate::events::pausable as pause_events;

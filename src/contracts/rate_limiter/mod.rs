@@ -4,6 +4,9 @@ pub mod contract;
 pub mod interface;
 pub mod window;
 
+#[cfg(test)]
+mod test;
+
 use soroban_sdk::{Address, Env, Symbol};
 
 use crate::errors::rate_limiter::RateLimiterError;

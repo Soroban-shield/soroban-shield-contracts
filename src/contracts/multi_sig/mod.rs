@@ -4,6 +4,9 @@ pub mod contract;
 pub mod interface;
 pub mod proposal;
 
+#[cfg(test)]
+mod test;
+
 use soroban_sdk::{Address, Env, Symbol};
 
 use crate::events::multi_sig as ms_events;
