@@ -15,7 +15,12 @@ pub use contract::{revoke_role, set_role_admin};
 
 pub fn grant_role(env: &Env, role: &Symbol, account: &Address, sender: &Address) {
     let key = roles::role_key(role);
-    if env.storage().instance().get::<_, bool>(&key).unwrap_or(false) {
+    if env
+        .storage()
+        .instance()
+        .get::<_, bool>(&key)
+        .unwrap_or(false)
+    {
         panic!("role already granted");
     }
     env.storage().instance().set(&key, &true);

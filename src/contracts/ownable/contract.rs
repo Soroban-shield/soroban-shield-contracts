@@ -1,6 +1,6 @@
 use soroban_sdk::{Address, Env};
 
-use super::{only_owner, owner, PENDING, OWNER};
+use super::{only_owner, owner, OWNER, PENDING};
 use crate::events::ownable as ownable_events;
 
 pub fn transfer_ownership(env: &Env, new_owner: &Address) {

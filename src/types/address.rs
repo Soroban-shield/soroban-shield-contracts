@@ -6,6 +6,6 @@ pub fn caller(env: &Env) -> Address {
 }
 
 /// Require that `account` has authorized the current call.
-pub fn require_auth(env: &Env, account: &Address) {
+pub fn require_auth(_env: &Env, account: &Address) {
     account.require_auth();
 }
