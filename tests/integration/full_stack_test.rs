@@ -4,10 +4,13 @@ use soroban_shield_contracts::contracts::{ownable, pausable, reentrancy_guard};
 #[test]
 fn guarded_action_when_not_paused() {
     let env = Env::default();
+    let contract_id = env.register_contract_wasm(None, &[] as &[u8]);
     let owner = Address::generate(&env);
     env.mock_all_auths();
-    ownable::initialize(&env, &owner);
-    reentrancy_guard::non_reentrant(&env, |e| {
-        pausable::when_not_paused(e);
+    env.as_contract(&contract_id, || {
+        ownable::initialize(&env, &owner);
+        reentrancy_guard::non_reentrant(&env, |e| {
+            pausable::when_not_paused(e);
+        });
     });
 }
